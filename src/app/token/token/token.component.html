@@ -1,0 +1,120 @@
+<div class="head" id="top">
+    <h1>EU Token</h1>
+
+</div>
+
+<mat-toolbar style="background-color: #1976d2; ">
+    <h3> Your Address: {{account}}</h3>
+</mat-toolbar>
+
+
+<mat-toolbar style="background-color: #1976d2;">
+    <div><img src="https://cryptorunner.com/wp-content/uploads/2017/10/ethereum-symbol.png" width="60" height="60"></div>
+    <div id="mydiv">
+
+        <h3>{{balanceof * 1000000000000000000}} EU</h3>
+    </div>
+</mat-toolbar>
+
+
+<mat-toolbar>Calls</mat-toolbar>
+<mat-card class="example-card">
+
+    <button type="button" (click)="totalSupply(totalsupply)">Total Supply</button>
+    <span>{{totalsupply}}</span>
+    <br>
+    <button type="button" (click)="statusFreezedToken(statusfreezedtoken)">Token Freeze Status</button>
+    <!---<input id="label" type="label" value={{statusfreezedtoken}} (click)="statusFreezedToken()">---->
+    <span>{{statusfreezedtoken}}</span>
+    <br>
+    <button type="button" (click)="ownerAddress(owner)">Owner</button>
+    <span>{{owner}}</span>
+    <br>
+
+    <button type="button" (click)="readBalance(balanceoflabel)">Balance of</button>
+    <label for="readBalance" class="sr-only"></label>
+    <input id="label2" type="text" class="form-control" [(ngModel)]="balanceoflabel" placeholder="Address">
+
+    <span style="margin: 10px;">Balance: {{balanceofaddress}}</span>
+
+    <br>
+
+    <button type="button" (click)="frozenAccountStatus(stautsfreez); frozenAccountReason(stautsfreez)">Account Freezed
+        ?</button>
+    <label for="stautsfreez" class="sr-only"></label>
+    <input id="label2" type="text" class="form-control" [(ngModel)]="stautsfreez" placeholder="Address">
+
+    <span style="margin: 10px;">Status: {{stautsfr}}</span>
+    <span style="margin: 10px;">Information: {{stautsreason}}</span>
+
+
+</mat-card>
+
+<mat-toolbar>Operations</mat-toolbar>
+
+
+<mat-card class="example-card">
+
+
+
+    <mat-list>
+        <mat-list-item> <button type=" button" (click)="transfer(addresslabel, valuelabel)">Send
+                Token</button>
+            <div>
+
+
+                <label for="" class="sr-only"></label>
+                <input id="label2" type="text" class="form-control" [(ngModel)]="addresslabel" placeholder="Address">
+
+                <label for="" class="sr-only"></label>
+                <input id="label" type="text" class="form-control" [(ngModel)]="valuelabel" placeholder="value">
+            </div>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+
+        <mat-list-item><button type="button" (click)="burnFromAddress(valuelabelburn, addresslabelburn)">Burn from
+                Address</button>
+
+            <div>
+                <label for="" class="sr-only"></label>
+                <input id="label2" type="text" class="form-control" [(ngModel)]="addresslabelburn" placeholder="Address">
+
+
+                <label for="" class="sr-only"></label>
+                <input id="label" type="text" class="form-control" [(ngModel)]="valuelabelburn" placeholder="value">
+            </div>
+        </mat-list-item>
+
+        <mat-list-item><button type="button" (click)="burn(burnlabel)">Burn Token</button>
+            <label for="" class="sr-only"></label>
+            <input id="label" type="text" class="form-control" [(ngModel)]="burnlabel" placeholder="value"></mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item> <button type="button" (click)="mint(mintlabel)">Mint Token</button>
+            <label for="" class="sr-only"></label>
+            <input id="label" type="text" class="form-control" [(ngModel)]="mintlabel" placeholder="value"></mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>
+            <button type="button" (click)="freezeToken(freezetokenlabel)">freeze Token</button>
+            <label for="" class="sr-only"></label>
+            <input id="label" type="text" class="form-control" [(ngModel)]="freezetokenlabel" placeholder="bool"></mat-list-item>
+
+        <mat-list-item> <button type="button" (click)="freezeAccount(addresslabelfreeze, freezebool, reason)">Freeze
+                from Address</button>
+            <label for="" class="sr-only"></label>
+            <input id="label2" type="text" class="form-control" [(ngModel)]="addresslabelfreeze" placeholder="Address">
+            <label for="" class="sr-only"></label>
+            <input id="label" type="text" class="form-control" [(ngModel)]="freezebool" placeholder="bool">
+            <label for="" class="sr-only"></label>
+            <input id="label2" type="text" class="form-control" [(ngModel)]="reason" placeholder="Informationtext">
+        </mat-list-item>
+
+        <mat-divider></mat-divider>
+        <mat-list-item>
+            <button type="button" (click)="transferOwnership(owneraddress)">Transfer Ownership</button>
+            <label for="" class="sr-only"></label>
+            <input id="label2" type="text" class="form-control" [(ngModel)]="owneraddress" placeholder="Address">
+        </mat-list-item>
+
+    </mat-list>
+
+</mat-card>
